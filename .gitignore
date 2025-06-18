@@ -1,0 +1,67 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Rider
+.idea/
+
+# Mac/Linux hidden files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Configuration
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# EF Core
+Migrations/*Snapshot.cs
+
+# Docker
+*.container.cache
+docker-compose.override.yml
+
+# Publish
+publish/
+*.pubxml
+*.Publish.xml
+
+# NPM / Node (caso use frontend junto)
+node_modules/
+dist/
+
+# Test Results
+TestResults/
+
+# Coverage reports
+coverage/
+*.coverage
+*.coveragexml
+
+# SQL tools
+*.dbmdl
+*.bak
+*.mdf
+*.ldf
+
+# Others
+*.ncrunch*
+_ReSharper*/
