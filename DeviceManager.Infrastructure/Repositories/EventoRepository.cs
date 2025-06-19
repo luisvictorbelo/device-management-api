@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DeviceManager.Domain.Entities;
 using DeviceManager.Domain.Enums;
 using DeviceManager.Domain.Interfaces;
+using DeviceManager.Infrastructure.Db;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeviceManager.Infrastructure.Repositories

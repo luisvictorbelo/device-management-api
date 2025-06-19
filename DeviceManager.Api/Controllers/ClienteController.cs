@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using DeviceManager.Application.DTOs;
 using DeviceManager.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeviceManager.Api.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class ClienteController(IClienteService clienteService) : ControllerBase

@@ -6,7 +6,7 @@ using DeviceManager.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DeviceManager.Infrastructure
+namespace DeviceManager.Infrastructure.Db
 {
     public class DeviceManagerDbContext(DbContextOptions<DeviceManagerDbContext> options) : DbContext(options)
     {
@@ -14,11 +14,14 @@ namespace DeviceManager.Infrastructure
         public DbSet<Dispositivo> Dispositivos { get; set; }
         public DbSet<Evento> Eventos { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ConfigureCliente(modelBuilder.Entity<Cliente>());
             ConfigureDispositivo(modelBuilder.Entity<Dispositivo>());
             ConfigureEvento(modelBuilder.Entity<Evento>());
+            ConfigureUser(modelBuilder.Entity<User>());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -88,6 +91,26 @@ namespace DeviceManager.Infrastructure
             builder.HasOne(e => e.Dispositivo)
                 .WithMany(d => d.Eventos)
                 .HasForeignKey(e => e.DispositivoId);
+        }
+
+        private static void ConfigureUser(EntityTypeBuilder<User> builder)
+        {
+            builder.HasKey(u => u.Id);
+
+            builder.Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.HasIndex(u => u.Email)
+                .IsUnique();
+
+            builder.Property(u => u.PasswordHash)
+                .IsRequired();
+
+            builder.Property(u => u.Perfil)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasDefaultValue("Admin");
         }
     }
 }

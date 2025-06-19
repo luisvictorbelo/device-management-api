@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DeviceManager.Domain.Entities;
 using DeviceManager.Domain.Interfaces;
+using DeviceManager.Infrastructure.Db;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeviceManager.Infrastructure.Repositories
