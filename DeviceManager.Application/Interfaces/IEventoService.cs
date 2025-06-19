@@ -9,6 +9,7 @@ namespace DeviceManager.Application.Interfaces
 {
     public interface IEventoService
     {
+        Task<EventoDto?> GetByIdAsync(Guid id);
         Task<EventoDto> CreateAsync(EventoDto eventoDto);
         Task<IEnumerable<EventoDto>> GetByDispositivoAsync(Guid dispositivoId);
         Task<IEnumerable<EventoDto>> GetByPeriodAsync(DateTime startDate, DateTime endDate);

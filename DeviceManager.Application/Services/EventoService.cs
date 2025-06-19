@@ -16,6 +16,12 @@ namespace DeviceManager.Application.Services
         private readonly IEventoRepository _repository = repository;
         private readonly IMapper _mapper = mapper;
 
+        public async Task<EventoDto?> GetByIdAsync(Guid id)
+        {
+            var evento = await _repository.GetByIdAsync(id);
+            return _mapper.Map<EventoDto?>(evento);
+        }
+
         public async Task<EventoDto> CreateAsync(EventoDto dto)
         {
             var evento = _mapper.Map<Evento>(dto);

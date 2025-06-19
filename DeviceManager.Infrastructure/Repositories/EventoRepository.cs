@@ -13,6 +13,12 @@ namespace DeviceManager.Infrastructure.Repositories
     {
         private readonly DeviceManagerDbContext _context = context;
 
+        public async Task<Evento?> GetByIdAsync(Guid id)
+        {
+            return await _context.Eventos.FindAsync(id);
+                
+        }
+
         public async Task<Evento> CreateAsync(Evento evento)
         {
             _context.Eventos.Add(evento);
