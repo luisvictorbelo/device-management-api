@@ -14,7 +14,11 @@ namespace DeviceManager.Application.Mappings
         {
             CreateMap<Cliente, ClienteDto>().ReverseMap();
             CreateMap<Dispositivo, DispositivoDto>().ReverseMap();
-            // CreateMap<Evento, EventoDto>().ReverseMap();
+            CreateMap<Evento, EventoDto>()
+                .ForMember(dest => dest.Tipo, opt => opt.MapFrom(src => src.Tipo.ToString()))
+                .ReverseMap()
+                .ForMember(dest => dest.Tipo, opt => opt.Ignore());
+
         }
     }
 }
