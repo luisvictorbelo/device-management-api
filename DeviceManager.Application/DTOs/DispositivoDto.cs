@@ -12,6 +12,5 @@ namespace DeviceManager.Application.DTOs
         public string IMEI { get; set; } = string.Empty;
         public DateTime? DataAtivacao { get; set; }
         public Guid ClienteId { get; set; }
-        public ClienteDto Cliente { get; set; } = null!;
     }
 }

@@ -1,5 +1,10 @@
 using System.Reflection;
+using DeviceManager.Application.Interfaces;
+using DeviceManager.Application.Mappings;
+using DeviceManager.Application.Services;
+using DeviceManager.Domain.Interfaces;
 using DeviceManager.Infrastructure;
+using DeviceManager.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +27,16 @@ builder.Services.AddSwaggerGen(c =>
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
 });
+
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IDispositivoRepository, DispositivoRepository>();
+builder.Services.AddScoped<IEventoRepository, EventoRepository>();
+
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IDispositivoService, DispositivoService>();
+builder.Services.AddScoped<IEventoService, EventoService>();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 var app = builder.Build();
 
