@@ -1,6 +1,6 @@
 # Device Manager API
 
-**Device Manager** é uma API RESTful desenvolvida com **.NET 9**, voltada para o gerenciamento de **clientes**, **dispositivos** e **eventos**, com suporte a autenticação baseada em **JWT** e arquitetura baseada em Clean Archictecture.
+**Device Manager** é uma API RESTful desenvolvida com **.NET 9**, voltada para o gerenciamento de **clientes**, **dispositivos** e **eventos**, com suporte a autenticação baseada em **JWT** e arquitetura baseada em Clean Architecture.
 
 ## 🚀 Funcionalidades
 
