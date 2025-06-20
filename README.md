@@ -1,0 +1,105 @@
+# Device Manager API
+
+**Device Manager** é uma API RESTful desenvolvida com **.NET 6**, voltada para o gerenciamento de **clientes**, **dispositivos** e **eventos**, com suporte a autenticação baseada em **JWT** e arquitetura escalável baseada em boas práticas.
+
+## 🚀 Funcionalidades
+
+- ✅ Cadastro e autenticação de usuários com roles (`Admin`, etc.)
+- ✅ CRUD de Clientes
+- ✅ CRUD de Dispositivos
+- ✅ Registro de Eventos
+- ✅ Filtro de eventos por período
+- ✅ Autenticação com JWT
+- ✅ Proteção de rotas por role
+- ✅ Integração com Swagger
+- ✅ Cobertura de testes com xUnit + Moq
+
+---
+
+## 🧱 Estrutura do Projeto
+
+```
+DeviceManager
+│
+├── src/
+│   ├── DeviceManager.API           # API ASP.NET Core
+│   ├── DeviceManager.Application  # Serviços, DTOs e Automapper
+│   ├── DeviceManager.Domain       # Entidades e Interfaces
+│   └── DeviceManager.Infrastructure # Repositórios e acesso ao banco
+│
+└── tests/
+    └── DeviceManager.Tests        # Testes unitários com xUnit e Moq
+```
+
+---
+
+## 🔧 Tecnologias Utilizadas
+
+- [.NET 9](https://dotnet.microsoft.com/)
+- Entity Framework Core
+- SQL Server (Docker)
+- AutoMapper
+- JWT Authentication
+- Swagger (Swashbuckle)
+- xUnit e Moq
+
+---
+
+## 📦 Executando com Docker
+
+```bash
+docker-compose up --build
+```
+
+A API estará acessível em:
+
+```
+http://localhost:5000
+```
+
+A interface Swagger estará em:
+
+```
+http://localhost:5000/swagger
+```
+
+---
+
+## 🔐 Autenticação JWT no Swagger
+
+1. Gere um token usando o endpoint `/api/Auth/login`
+2. Clique em **Authorize** no Swagger
+3. Insira o token: `Bearer {seu_token}`
+
+---
+
+## ✅ Variáveis de Ambiente (appsettings.json)
+
+```json
+"Jwt": {
+  "Key": "sua-chave-super-secreta",
+  "Issuer": "DeviceManager",
+  "Audience": "DeviceManagerUsers",
+  "ExpirationInMinutes": 60
+}
+```
+
+---
+
+## 🧪 Executando Testes
+
+```bash
+dotnet test
+```
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Luís Belo**
+
+---
+
+## 📝 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
