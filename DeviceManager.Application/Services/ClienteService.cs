@@ -27,17 +27,17 @@ namespace DeviceManager.Application.Services
             return _mapper.Map<ClienteDto?>(cliente);
         }
 
-        public async Task<ClienteDto> CreateAsync(ClienteDto clienteDto)
+        public async Task<ClienteDto> CreateAsync(CreateClienteDto clienteDto)
         {
             var cliente = _mapper.Map<Cliente>(clienteDto);
             var createdCliente = await _repository.CreateAsync(cliente);
             return _mapper.Map<ClienteDto>(createdCliente);
         }
 
-        public async Task UpdateAsync(Guid id, ClienteDto clienteDto)
+        public async Task UpdateAsync(Guid id, UpdateClienteDto clienteDto)
         {
-            var cliente = _mapper.Map<Cliente>(clienteDto);
-            cliente.Id = id;
+            var cliente = await _repository.GetByIdAsync(id) ?? throw new KeyNotFoundException("Cliente não encontrado.");
+            _mapper.Map(clienteDto, cliente);
             await _repository.UpdateAsync(cliente);
         }
 

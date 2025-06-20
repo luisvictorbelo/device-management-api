@@ -27,17 +27,18 @@ namespace DeviceManager.Application.Services
             return _mapper.Map<DispositivoDto?>(dispositivo);
         }
 
-        public async Task<DispositivoDto> CreateAsync(DispositivoDto dispositivoDto)
+        public async Task<DispositivoDto> CreateAsync(CreateDispositivoDto dispositivoDto)
         {
             var dispositivo = _mapper.Map<Dispositivo>(dispositivoDto);
             var createdDispositivo = await _repository.CreateAsync(dispositivo);
             return _mapper.Map<DispositivoDto>(createdDispositivo);
         }
 
-        public async Task UpdateAsync(Guid id, DispositivoDto dispositivoDto)
+        public async Task UpdateAsync(Guid id, UpdateDispositivoDto dispositivoDto)
         {
-            var dispositivo = _mapper.Map<Dispositivo>(dispositivoDto);
-            dispositivo.Id = id;
+            var dispositivo = await _repository.GetByIdAsync(id) 
+                ?? throw new KeyNotFoundException("Dispositivo não encontrado.");
+            _mapper.Map(dispositivoDto, dispositivo);
             await _repository.UpdateAsync(dispositivo);
         }
 

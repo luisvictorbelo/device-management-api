@@ -25,6 +25,7 @@ namespace DeviceManager.Infrastructure.Repositories
 
         public async Task<Dispositivo> CreateAsync(Dispositivo dispositivo)
         {
+            dispositivo.Id = Guid.NewGuid();
             _context.Dispositivos.Add(dispositivo);
             await _context.SaveChangesAsync();
             return dispositivo;

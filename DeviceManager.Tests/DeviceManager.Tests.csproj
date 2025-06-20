@@ -23,6 +23,7 @@
     <ProjectReference Include="..\DeviceManager.Domain\DeviceManager.Domain.csproj" />
     <ProjectReference Include="..\DeviceManager.Application\DeviceManager.Application.csproj" />
     <ProjectReference Include="..\DeviceManager.Infrastructure\DeviceManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\DeviceManager.Api\DeviceManager.Api.csproj" />
   </ItemGroup>
 
 </Project>

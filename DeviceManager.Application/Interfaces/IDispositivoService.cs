@@ -10,8 +10,8 @@ namespace DeviceManager.Application.Interfaces
     {
         Task<IEnumerable<DispositivoDto>> GetAllAsync();
         Task<DispositivoDto?> GetByIdAsync(Guid id);
-        Task<DispositivoDto> CreateAsync(DispositivoDto dispositivoDto);
-        Task UpdateAsync(Guid id, DispositivoDto dispositivoDto);
+        Task<DispositivoDto> CreateAsync(CreateDispositivoDto dispositivoDto);
+        Task UpdateAsync(Guid id, UpdateDispositivoDto dispositivoDto);
         Task DeleteAsync(Guid id);
     }
 }

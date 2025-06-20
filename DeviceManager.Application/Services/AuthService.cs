@@ -47,7 +47,7 @@ namespace DeviceManager.Application.Services
             var user = await _userRepository.GetByEmailAsync(loginDto.Email);
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash))
             {
-                throw new UnauthorizedAccessException("Invalid email or password.");
+                throw new UnauthorizedAccessException("Email ou senha inválidos.");
             }
 
             return GenerateToken(user.Email, user.Perfil);

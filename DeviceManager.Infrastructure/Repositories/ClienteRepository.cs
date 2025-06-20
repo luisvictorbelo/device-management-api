@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DeviceManager.Domain.Entities;
 using DeviceManager.Domain.Interfaces;
 using DeviceManager.Infrastructure.Db;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeviceManager.Infrastructure.Repositories
@@ -25,6 +26,7 @@ namespace DeviceManager.Infrastructure.Repositories
 
         public async Task<Cliente> CreateAsync(Cliente cliente)
         {
+            cliente.Id = Guid.NewGuid();
             _context.Clientes.Add(cliente);
             await _context.SaveChangesAsync();
             return cliente;

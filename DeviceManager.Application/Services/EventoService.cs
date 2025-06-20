@@ -22,7 +22,7 @@ namespace DeviceManager.Application.Services
             return _mapper.Map<EventoDto?>(evento);
         }
 
-        public async Task<EventoDto> CreateAsync(EventoDto dto)
+        public async Task<EventoDto> CreateAsync(CreateEventoDto dto)
         {
             var evento = _mapper.Map<Evento>(dto);
             evento.Tipo = Enum.Parse<TipoEvento>(dto.Tipo);
