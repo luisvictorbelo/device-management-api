@@ -1,6 +1,6 @@
 # Device Manager API
 
-**Device Manager** é uma API RESTful desenvolvida com **.NET 6**, voltada para o gerenciamento de **clientes**, **dispositivos** e **eventos**, com suporte a autenticação baseada em **JWT** e arquitetura escalável baseada em boas práticas.
+**Device Manager** é uma API RESTful desenvolvida com **.NET 9**, voltada para o gerenciamento de **clientes**, **dispositivos** e **eventos**, com suporte a autenticação baseada em **JWT** e arquitetura escalável baseada em boas práticas.
 
 ## 🚀 Funcionalidades
 
@@ -21,13 +21,13 @@
 ```
 DeviceManager
 │
-├── src/
+├──
 │   ├── DeviceManager.API           # API ASP.NET Core
 │   ├── DeviceManager.Application  # Serviços, DTOs e Automapper
 │   ├── DeviceManager.Domain       # Entidades e Interfaces
 │   └── DeviceManager.Infrastructure # Repositórios e acesso ao banco
 │
-└── tests/
+└── 
     └── DeviceManager.Tests        # Testes unitários com xUnit e Moq
 ```
 
