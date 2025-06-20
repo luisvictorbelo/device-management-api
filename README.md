@@ -1,6 +1,6 @@
 # Device Manager API
 
-**Device Manager** é uma API RESTful desenvolvida com **.NET 9**, voltada para o gerenciamento de **clientes**, **dispositivos** e **eventos**, com suporte a autenticação baseada em **JWT** e arquitetura escalável baseada em boas práticas.
+**Device Manager** é uma API RESTful desenvolvida com **.NET 9**, voltada para o gerenciamento de **clientes**, **dispositivos** e **eventos**, com suporte a autenticação baseada em **JWT** e arquitetura baseada em Clean Archictecture.
 
 ## 🚀 Funcionalidades
 
@@ -21,7 +21,7 @@
 ```
 DeviceManager
 │
-├──
+├───
 │   ├── DeviceManager.API           # API ASP.NET Core
 │   ├── DeviceManager.Application  # Serviços, DTOs e Automapper
 │   ├── DeviceManager.Domain       # Entidades e Interfaces
@@ -67,9 +67,10 @@ http://localhost:5000/swagger
 
 ## 🔐 Autenticação JWT no Swagger
 
-1. Gere um token usando o endpoint `/api/Auth/login`
-2. Clique em **Authorize** no Swagger
-3. Insira o token: `Bearer {seu_token}`
+1. Crie um usuário usando o endpoint `/api/User` utilizando o perfil "Admin"
+2. Gere um token usando o endpoint `/api/Auth/login`
+3. Clique em **Authorize** no Swagger
+4. Insira o token: `Bearer {seu_token}`
 
 ---
 
@@ -98,8 +99,3 @@ dotnet test
 
 Desenvolvido por **Luís Belo**
 
----
-
-## 📝 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
